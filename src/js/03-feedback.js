@@ -20,7 +20,7 @@ function handleSubmit(event) {
     }
     console.log(formData);
     event.currentTarget.reset();
-    localStorage.removeItem(FORM_STORAGE_KEY);
+    // localStorage.removeItem(FORM_STORAGE_KEY);
 };
 
 function addFormInput(event) {
