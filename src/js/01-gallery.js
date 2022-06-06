@@ -1,10 +1,13 @@
 // Add imports above this line
 import { galleryItems } from './gallery-items';
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
 // Change code below this line
 
 console.log(galleryItems);
 
-const galleryCintainer = document.querySelector(".gallery");
+const galleryContainer = document.querySelector(".gallery");
 const galleryElement = createGalleryElement(galleryItems);
 
 function createGalleryElement(galleryItems) {
@@ -25,19 +28,25 @@ function createGalleryElement(galleryItems) {
 
 // console.log(galleryMarkup);
 
-function onGAlleryContainerClick(event) {
-    if (!event.target.classList.contains(`gallery__image`)) {
-        renurn;
-    } else {
-        const instance = basicLightbox.create(`
-    <img
-    src="${event.target.dataset.source}"
-    />
-`)
-instance.show()
-    }
-    console.log(event.target);
-};
+// function onGAlleryContainerClick(event) {
+//     if (!event.target.classList.contains(`gallery__image`)) {
+//         renurn;
+//     } else {
+//         const instance = basicLightbox.create(`
+//     <img
+//     src="${event.target.dataset.source}"
+//     />
+// `)
+// instance.show()
+//     }
+//     console.log(event.target);
+// };
 
-galleryCintainer.insertAdjacentHTML(`beforeend`, galleryElement);
-galleryCintainer.addEventListener(`click`, onGAlleryContainerClick);
+// galleryContainer.insertAdjacentHTML(`beforeend`, galleryElement);
+// galleryContainer.addEventListener(`click`, onGAlleryContainerClick);
+
+galleryContainer.insertAdjacentHTML(`beforeend`, galleryElement);
+new SimpleLightbox(".gallery__link", {
+    captionDelay: 250,
+    captiosData: "alt",
+});
